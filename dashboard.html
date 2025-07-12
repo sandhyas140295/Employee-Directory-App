@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Employee Directory</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search by name or email" />
+      <button id="filter-toggle">Filter</button>
+    </div>
+  </header>
+
+  <div class="controls">
+    <label>Sort:
+      <select id="sort-select">
+        <option value="">--Select--</option>
+        <option value="firstName">First Name</option>
+        <option value="department">Department</option>
+      </select>
+    </label>
+
+    <label>Show:
+      <select id="items-per-page">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </label>
+
+    <button id="add-employee-btn" onclick="window.location.href='add-edit-form.html'">Add Employee</button>
+  </div>
+
+  <div class="main-content">
+    <div id="employee-list-container" class="employee-grid"></div>
+
+    <aside id="filter-sidebar" class="filter-sidebar hidden">
+      <div class="filter-sidebar-content">
+        <h3>Filter Employees</h3>
+
+        <div class="filter-group">
+          <label for="filter-first-name">First Name:</label>
+          <input type="text" id="filter-first-name" />
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-department">Department:</label>
+          <input type="text" id="filter-department" />
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-role">Role:</label>
+          <input type="text" id="filter-role" />
+        </div>
+
+        <div class="filter-buttons">
+          <button id="apply-filter-btn">Apply</button>
+          <button id="reset-filter-btn">Reset</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div id="pagination-controls" class="pagination"></div>
+
+  <footer class="footer">
+    <p>© 2025 Employee Directory App. All rights reserved.</p>
+  </footer>
+
+ 
+  <script src="static/js/filter.js"></script>
+  <script src="static/js/app.js"></script>
+
+  <script>
+   
+    document.getElementById("filter-toggle").addEventListener("click", function () {
+      const sidebar = document.getElementById("filter-sidebar");
+      sidebar.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>
+
